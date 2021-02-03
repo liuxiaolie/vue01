@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+ <img v-bind:src="aurl" alt=""></br>
+  <a v-bind:href="ahref">百度一下</a>
+  <!--语法糖的用法-->
+  </br>
+  <img :src="aurl" alt=""></br>
+  <a :href="ahref">百度一下</a>
+</div>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello vue',
+            aurl:'https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=false&word=%E7%BE%8E%E5%A5%B3&hs=2&pn=1&spn=0&di=168630&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&ie=utf-8&oe=utf-8&cl=2&lm=-1&cs=178295893%2C3223324527&os=4119766546%2C3563387178&simid=4219694146%2C541684784&adpicid=0&lpn=0&ln=30&fr=ala&fm=&sme=&cg=girl&bdtype=0&oriquery=&objurl=https%3A%2F%2Fgimg2.baidu.com%2Fimage_search%2Fsrc%3Dhttp%3A%2F%2Fwww.bbra.cn%2F(S(cdh0n4ymxynm2bnschrajp55))%2FUploadfiles%2Fimgs%2F2013%2F02%2F20%2Fmm2%2FXbzs_013.jpg%26refer%3Dhttp%3A%2F%2Fwww.bbra.cn%26app%3D2002%26size%3Df9999%2C10000%26q%3Da80%26n%3D0%26g%3D0n%26fmt%3Djpeg%3Fsec%3D1613221310%26t%3D93c4f24319670a8375a436ef127df886&fromurl=ippr_z2C%24qAzdH3FAzdH3Fooo_z%26e3Bkk6w_z%26e3BvgAzdH3F%25dbf%25db96qgt59chx3y6z9c2ry4evni%25dl%25dlAzdH3Ftpj4_z%26e3Bwfrx%3Ft1%3Dmlaa0%26rw2j%3Dn&gsm=2&islist=&querylist=',
+            ahref:"http://www.baidu.com"
+        }
+
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+  <ul>
+<!--组件key-对于v-for遍历数组绑定key.png这个图片的说明-->
+    <li v-for="item in letters" :key="item">{{item}}</li>
+  </ul>
+</div>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            letters:['a','b','c','d','e']
+        }
+
+    })
+</script>
+
+</body>
+</html>

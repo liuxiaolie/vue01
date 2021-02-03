@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script src="../js/vue.js"></script>
+<div id="app">
+<!--这是获取的value-->
+  <h2 v-for="item in person">{{item}}</h2>
+<!--获取对象的key，value格式：{key,value}-->
+  <h2 v-for="(value,key) in person">{{value}}:{{key}}</h2>
+</div>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            person: {
+              name:'liuxiaolie',
+              age:20
+            }
+        }
+
+    })
+</script>
+
+</body>
+</html>

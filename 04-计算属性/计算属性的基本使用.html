@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+  <h2>{{firstName + " " +  lastName}}</h2>
+  <h2>{{firstName}} {{lastName}}</h2>
+  <h2>{{getFullName()}}</h2>
+<!--计算属性的使用-->
+  <h2>{{fullName}}</h2>
+
+</div>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            firstName:'勒布朗',
+            lastName:'詹姆斯',
+        },
+      computed:{
+        fullName:function (){
+          return this.firstName + " " + this.lastName
+        }
+      },
+      methods:{
+          getFullName:function (){
+            return this.firstName + " " + this.lastName
+          }
+      }
+
+    })
+</script>
+
+</body>
+</html>

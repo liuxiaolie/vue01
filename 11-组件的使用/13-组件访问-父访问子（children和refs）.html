@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+ <cpn ref="aaa"></cpn>
+  <button @click="btnclick">按钮</button>
+</div>
+<template id="cpn">
+  <h2>我是子组件</h2>
+</template>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello vue',
+        },
+      methods: {
+
+        btnclick(){
+          //  $children返回的是子组件的对象数组,一般开发中不推荐这种
+          // this.$children[0].showMessage()
+
+          //开发中推荐这种，默认返回空对象{}
+          // console.log(this.$refs)
+          //通过在子组件标签中添加ref属性获取子组件对象
+           this.$refs.aaa.showMessage()
+
+        }
+      },
+      components:{
+          cpn:{
+            template:'#cpn',
+            methods:{
+              showMessage(){
+                console.log("showMessage")
+              }
+            }
+          }
+      }
+
+    })
+</script>
+
+</body>
+</html>

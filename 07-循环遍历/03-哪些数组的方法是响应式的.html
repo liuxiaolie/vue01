@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+  <ul>
+    <li v-for="item in letters">{{item}}</li>
+  </ul>
+  <button @click="btn">按钮</button>
+</div>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            letters: ['a','b','c','d']
+        },
+        methods:{
+          btn(){
+          //  push()在数组最后添加元素，可以添加多个
+          //   this.letters.push("e")
+          //   this.letters.push("e","f")
+            //在数组中最后位置删除元素
+            // this.letters.pop();
+            //在数组第一个位置删除元素
+            // this.letters.shift();
+            //在数组开头添加一个或多个元素
+            // this.letters.unshift("aaa")
+            // this.letters.unshift("aaa",'bbb','cccc')
+            //删除元素：第一个参数删除元素的起始下表，第二个参数要删除的个数
+            // this.letters.splice(1,2);
+            //替换元素：第一个参数替换元素的起始下表，第二个参数要替换的个数，后面是要替换的元素
+            // this.letters.splice(1,2,'aaa','bbb','cccc');
+            //添加元素：第一个参数添加元素的起始下表，第二个参数为0，后面是要添加的元素
+            // this.letters.splice(1,0,'aaa','bbb','cccc');
+            //排序
+            // this.letters.sort();
+            //反转
+            // this.letters.reverse();
+            //这样修改元素页面不会重新渲染，不是响应式的
+            // this.letters[0]='aaa';
+            //可以这样修改指定下标的值:第一个参数要修改的对象，第二个要修改的下标位置，第三个参数修改值
+            Vue.set(this.letters,0,'aaa')
+          }
+        }
+
+    })
+</script>
+
+</body>
+</html>

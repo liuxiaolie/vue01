@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+  <!--<my-cpn></my-cpn>-->
+<!--自定义的标签中不能有大写字母，不然会报错无法识别标签-->
+  <cpn2></cpn2>
+<!--这样引用标签是不起作用的-->
+<!--  <c1></c1>-->
+</div>
+<script>
+  //1,创建组件构造器
+  const c1 = Vue.extend({
+    template:`
+      <div>
+        <h2>我是标题1</h2>
+        <p>我是内容，哈哈哈</p>
+</div>
+     `
+  })
+  const c2 = Vue.extend({
+    template:`
+      <div>
+        <h2>我是标题2</h2>
+        <p>我是内容，呵呵呵</p>
+      <c1></c1>
+</div>
+     `,
+    components:{
+      c1:c1
+    }
+  })
+  //2，注册组件(这样注册的就是全局组件，可以在多个vue实例中使用)
+  // Vue.component("my-cpn",cpnC)
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hello vue',
+    },
+    //这样注册局部组件：cpn：要使用的标签，cpnC：组件构造器对象
+    components:{
+      cpn2:c2,
+    }
+
+  })
+</script>
+
+</body>
+</html>

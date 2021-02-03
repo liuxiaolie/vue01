@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+<!--事件监听调用无法方法时，可以直接写方法名，也可以写方法名()-->
+  <button @click="btn1">按钮1</button>
+  <button @click="btn1()">按钮1</button>
+<!--方法有一个参数时，直接这样调用时，参数默认传undifined-->
+  <button @click="btn2()">按钮2</button>
+  <button @click="btn2(name)">按钮3</button>
+<!--方法有一个参数时，直接这样调用时，参数默认传event事件监听对象
+MouseEvent{isTrusted: true, screenX: 263, screenY: 157, clientX: 263, clientY: 23, …}
+---->
+  <button @click="btn2">按钮4</button>
+<!--方法有两个参数时，直接这样调用时，第一个参数传的是event对象，第二个是undifined-->
+  <button @click="btn3">按钮5</button>
+  <!--方法有两个参数时，直接这样调用时，两个参数传的都是undifined-->
+  <button @click="btn3()">按钮6</button>
+  <!--方法有两个参数时，直接这样调用时，第一个参数传的是真实的name值，第二个是undifined-->
+  <button @click="btn3(name)">按钮7</button>
+  <!--方法有两个参数时，直接这样调用时，第一个参数传的是真实的name值，第二个是event对象，如果希望指定传递event对象就是按这样传递就可以-->
+  <button @click="btn3(name,$event)">按钮8</button>
+</div>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello vue',
+          name:'abc'
+        },
+      methods:{
+          btn1(){
+            console.log("-----按钮1------")
+          },
+        btn2(name){
+          console.log("-----按钮2------",name)
+        },
+        btn3(name,age){
+          console.log("-----按钮2------",name,age)
+        }
+      }
+
+    })
+
+</script>
+
+</body>
+</html>

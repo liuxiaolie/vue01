@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+<!--1 stop修饰符，停止冒泡,就是点击按钮的时候只调用按钮的点击事件，不会触发div的点击事件-->
+  <div @click="div1">
+    <button @click.stop="btn1">提交</button>
+  </div>
+  </br>
+  <form action="baidu">
+<!--3 @keyup.enter 只希望键盘按下enter才会调用-->
+    <input type="text" @keyup.enter="keyup1"/>
+<!--4 once只希望调用一次-->
+    <input type="text" @keyup.once="keyup2"/>
+    <!--2 prevent阻止默认提交,就是点击提交时，不调用默认的action地址，只走点击事件的方法-->
+    <input type="submit" value="提交" @click.prevent="submit1"/>
+  </form>
+</div>
+
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello vue',
+        },
+      methods:{
+        div1(){
+          console.log("----div1-----")
+        },
+        btn1(){
+          console.log("-----btn1-----")
+        },
+        submit1(){
+          console.log("----submit1----")
+        },
+        keyup1(){
+          console.log("-----keyup1-----")
+        },
+        keyup2(){
+          console.log("---keyup2------")
+        }
+      }
+
+    })
+</script>
+
+</body>
+</html>

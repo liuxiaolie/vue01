@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+  <!--计算属性的使用-->
+  <h2>{{fullName}}</h2>
+
+</div>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      firstName:'勒布朗',
+      lastName:'詹姆斯',
+    },
+    // computed:{
+    //   fullName:function (){
+    //     return this.firstName + " " + this.lastName
+    //   }
+    // },
+    //计算属性一般是只读属性
+    computed:{
+      fullName:{
+
+        set:function (newValue){
+          console.log('--------'+newValue);
+          const str = newValue.split(" ");
+          this.firstName = str[0];
+          this.lastName = str[1];
+
+        },
+        get:function (){
+          return this.firstName + " " + this.lastName
+        }
+      }
+
+    }
+
+  })
+</script>
+
+</body>
+</html>

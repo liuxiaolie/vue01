@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+  <h2>{{counter}}</h2>
+<!--  <button v-on:click="increment()">++++++</button>-->
+<!--  <button v-on:click="decrement()">&#45;&#45;&#45;&#45;&#45;&#45;</button>-->
+  <button @click="increment()">++++++</button>
+  <button @click="decrement()">------</button>
+</div>
+<script>
+    const app = new Vue({
+        el:'#app',
+      data:{
+          counter:0
+      },
+        methods:{
+          increment(){
+            return this.counter++;
+          },
+          decrement(){
+            return this.counter--;
+          }
+        }
+
+    })
+</script>
+
+</body>
+</html>

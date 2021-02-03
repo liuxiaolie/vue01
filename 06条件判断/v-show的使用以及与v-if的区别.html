@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+<!--  v-if的值为false时，包含v-if的标签就不会显示-->
+  <h2 v-if="isShow">{{message}}</h2>
+  <!--  v-show的值为false时，包含v-show的标签只是添加两行内样式：dispaly：none-->
+  <h2 v-show="isShow">{{message}}</h2>
+</div>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hello vue',
+      isShow:true
+    }
+
+  })
+</script>
+
+</body>
+</html>

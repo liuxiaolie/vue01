@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+  <h2>{{arrays}}</h2>
+  <h2>{{array1}}</h2>
+</div>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+          arr:[10,20,190,98,459,437,38]
+        },
+//filter函数：计算出arr中小于100的值
+      computed:{
+          arrays:function (){
+            this.arr.filter(function (n){
+              return n < 100
+            })
+          },
+        //把arr数组中的元素都乘以2
+        array1:function (){
+          this.arr.map(function (n){
+            return n *2
+          })
+        },
+        //计算出arr中所有元素的和
+        array2:function (){
+          this.arr.reduce(function (preValue,n){
+            return preValue + n
+          },0)
+        }
+      }
+    })
+
+    console.log(this.arrays)
+
+</script>
+
+</body>
+</html>

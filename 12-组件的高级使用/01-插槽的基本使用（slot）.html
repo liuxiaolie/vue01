@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+<!--需求1：有些组件除了展示<h2><p>标签外，有的展示按钮<button>,有的展示<span>等等，-->
+<!--  <cpn><button>我是按钮</button></cpn>-->
+<!--  <cpn><span>我是span</span></cpn>-->
+<!--需求2：大部分组件都需要展示按钮，这时候在<slot>中设置默认值-->
+<!--  <cpn></cpn>-->
+<!--  <cpn></cpn>-->
+<!--  <cpn></cpn>-->
+<!--需求3：在需求2的基础下，在组件标签中设置的标签会覆盖默认值-->
+  <cpn></cpn>
+  <cpn>
+    <div>
+      <h1>hahaha</h1>
+      <p>hahahahah</p>
+    </div>
+  </cpn>
+  <cpn></cpn>
+</div>
+<!---->
+<template id="cpn">
+  <div>
+    <h2>我是组件</h2>
+    <p>我是内容</p>
+<!-- 需求1-->
+<!--    <slot></slot>-->
+    <!--需求2：大部分组件都需要展示按钮，这时候在<slot>中设置默认值-->
+    <slot><button>按钮</button></slot>
+  </div>
+</template>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello vue',
+        },
+        components:{
+          cpn:{
+            template:'#cpn'
+          }
+        }
+
+    })
+</script>
+
+</body>
+</html>

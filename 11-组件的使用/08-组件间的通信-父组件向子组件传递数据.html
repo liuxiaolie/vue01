@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+<!--  <cpn :cmovies="movies" :cmessage="message"></cpn>-->
+<!--第三种写法：必须要传的数据没有传-->
+  <cpn :cmovies="movies" ></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <ul>
+      <li v-for="item in cmovies">{{item}}</li>
+    </ul>
+    <h2>{{cmessage}}</h2>
+  </div>
+
+</template>
+<script>
+
+    const app = new Vue({
+        el:'#app',
+        data:{
+          movies:['拆弹专家','流金岁月','海王'],
+            message:'hello vue',
+        },
+        components:{
+          cpn:{
+            template:'#cpn',
+            //第一种写法
+            // props:['cmovies','cmessage']
+            props:{
+              // 第二种写法
+              // cmovies:Array,
+              // cmessage:String
+              //第三中写法
+               cmovies:{
+                 type:Array,
+                 // default:[]
+                 default(){
+                   return []
+                 }
+               },
+               cmessage: {
+                 type:String,
+                 default: 'aaa',
+                 required:true
+               }
+
+
+            }
+          }
+        }
+
+    })
+</script>
+
+</body>
+</html>

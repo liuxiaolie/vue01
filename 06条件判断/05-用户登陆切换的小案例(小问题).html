@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<!--当在v-if<span>标签的输入框输入值时，点击切换的时候这个值还是会渲染在页面上，这是因为
+vue出于性能考虑，在虚拟dom种不会重新生成<span>标签，会服用，只会替换不一样的地方，所以才会显示，
+如果不想显示的话，可以加一个"key"属性，属性的值必须是不一样，如果是一样还是会显示
+-->
+<div id="app">
+  <span v-if="isTrue">
+    <label for="username">用户账号</label>
+    <input type="text" id="username" placeholder="用户账号" key="username"/>
+  </span>
+  <span v-else>
+    <label for="email">用户邮箱</label>
+    <input type="text" id="email" placeholder="用户邮箱" key="email"/>
+  </span>
+  <button @click="isTrue = !isTrue">切换类型</button>
+</div>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+          isTrue:true,
+        }
+
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+  <cpn></cpn>
+<!--希望父组件能够引用子组件的变量-->
+<!--第一种用法-->
+  <cpn>
+    <template slot-scope="hahah">
+      <span>{{hahah.aaa.join(" - ")}}</span>
+    </template>
+  </cpn>
+  <!--第二种用法-->
+  <cpn>
+      <span slot-scope="hahah">{{hahah.aaa.join(" & ")}}</span>
+  </cpn>
+</div>
+<template id="cpn">
+  <div>
+    <slot :aaa ="languages">
+      <ul>
+        <li v-for="item in languages">{{item}}</li>
+      </ul>
+    </slot>
+  </div>
+
+
+</template>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+            message:'hello vue',
+        },
+      components:{
+          cpn:{
+            template:'#cpn',
+            data(){
+              return{
+                languages:['Java','Python','C','C++','js']
+              }
+            }
+          }
+      }
+
+    })
+</script>
+
+</body>
+</html>

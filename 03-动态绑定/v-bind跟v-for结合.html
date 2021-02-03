@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+<!--列表展示，点击哪个更改字体的颜色-->
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<div id="app">
+  <ul>
+    <li v-for="item in movies">{{item}}</li>
+  </ul>
+</div>
+<script>
+    const app = new Vue({
+        el:'#app',
+        data:{
+          movies:['拆弹专家','流金岁月','海王']
+        }
+
+    })
+</script>
+</body>
+</html>
